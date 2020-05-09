@@ -1,26 +1,15 @@
 version: "3"
 
 services:
-  ##########################
   ### SETUP SERVER CONTAINER
-  ##########################
   server:
-    # Tell docker what file to build the server from
+    # Build the server from
     build:
       context: ./src
       dockerfile: Dockerfile
-    # The ports to expose
+    # Ports expose
     expose:
       - 3000
-    # Environment variables
-    # environment:
-    #   - MONGO_URI=mongodb://db:27017/db
-    #   - PORT=4000
-    #   - JWT_SECRET=secretsecret
-    #   - JWT_EXPIRY=30d
-    #   - DEBUG=worker:*
-    #   - MORGAN=combined
-    #   - NODE_ENV=development
     # Port mapping
     ports:
       - 3000:3000
@@ -30,8 +19,6 @@ services:
       - /app/src/node_modules
       - /app/src/.next
     # Run command
-    # Nodemon for hot reloading (-L flag required for polling in Docker)
-    # command: yarn dev
     command: yarn dev
-    # Restart action
+    # Restart
     restart: always
