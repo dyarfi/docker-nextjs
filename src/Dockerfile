@@ -15,4 +15,3 @@ RUN yarn install
 RUN yarn cache clean
 
 EXPOSE 3000
-
